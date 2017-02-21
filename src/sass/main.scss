@@ -1,0 +1,198 @@
+// Main SASS file -- outputs to build/css/main.css
+
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: map-get($colors, white);
+	font-family: 'Lato', sans-serif;
+}
+
+.emoji {
+	font-weight: normal;
+	font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
+}
+
+.navbar-default {
+	background: map-get($colors, black);
+	border-bottom: none;
+
+	.navbar-header {
+		text-align: center;
+		padding-top: 15px;
+	}
+
+	.navbar-brand {
+		color: map-get($colors, white);
+		font-family: 'Dekko', cursive;
+		font-size: 2em;
+		float: none;
+
+		&:hover,
+		&:active,
+		&:visited,
+		&:focus {
+			color: map-get($colors, white);
+		}
+	}
+
+	.navbar-form {
+		border: none;
+		box-shadow: none;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.form-control {
+		border-radius: 50px;
+
+		&:focus {
+			border-color: map-get($colors, teal);
+		}
+	}
+}
+
+.logo,
+.btn {
+	font-family: 'Dekko', cursive;
+}
+
+.btn {
+	border-radius: 50px;
+}
+
+.btn-lg {
+	padding: 15px 25px;
+}
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active {
+	background: map-get($colors, black);
+	border: 1px solid map-get($colors, black);
+	@include transition;
+
+	&:hover {
+		transform: scale(1.15);
+		background: map-get($colors, black);
+		border: 1px solid map-get($colors, black);
+		@include transition;
+	}
+}
+
+.hp-header {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column wrap;
+	background: map-get($colors, teal);
+
+	.container {
+		text-align: center;
+	}
+
+	.text-wrap {
+		color: map-get($colors, white);
+
+		.header-text {
+			text-transform: uppercase;
+			font-size: 8vw;
+			text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.75);
+		}
+	}
+
+	form {
+		max-width: 600px;
+		margin: auto;
+
+		.form-control {
+			height: 45px;
+			border-radius: 50px;
+			font-size: 1.5em;
+			padding: 10px 20px;
+
+			&:focus {
+				box-shadow: none;
+				border-color: map-get($colors, teal);
+			}
+		}
+	}
+
+	.emoji-wrap {
+
+		.emoji {
+			font-size: 6.5em;
+			margin-right: 10px;
+			display: inline-block;
+			@include transition;
+
+			&:hover {
+				transform: rotate(360deg);
+				@include transition;
+			}
+		}
+	}
+}
+
+.hp-content {
+	background: map-get($colors, white);
+
+	.emoji-list {
+		margin: 80px 0;
+	}
+
+	.emoji-wrap {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.emoji {
+		font-size: 6.5em;
+		margin: 10px;
+		display: inline-block;
+		@include transition;
+
+		&:hover {
+			transform: scale(1.25);
+			@include transition;
+		}
+	}
+}
+
+footer {
+	padding: 50px 0;
+	background: map-get($colors, teal);
+	color: map-get($colors, white);
+
+	p {
+		font-size: 1.25em;
+	}
+}
+
+@media (min-width: 768px) {
+	.navbar-default {
+
+		.navbar-header {
+			text-align: left;
+			padding-top: 0;
+		}
+
+		.navbar-brand {
+			float: left;
+			font-size: 1.75em;
+		}
+
+		.navbar-form {
+			margin-top: 8px;
+			margin-bottom: 8px;
+		}
+	}
+}
