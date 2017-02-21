@@ -129,7 +129,7 @@ body {
 	.emoji-wrap {
 
 		.emoji {
-			font-size: 6.5em;
+			font-size: 3.75em;
 			margin-right: 10px;
 			display: inline-block;
 			@include transition;
@@ -193,6 +193,16 @@ footer {
 		.navbar-form {
 			margin-top: 8px;
 			margin-bottom: 8px;
+		}
+	}
+
+	.hp-header {
+
+		.emoji-wrap {
+
+			.emoji {
+				font-size: 6.5em;
+			}
 		}
 	}
 }
