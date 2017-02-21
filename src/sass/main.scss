@@ -34,12 +34,14 @@ body {
 		font-family: 'Dekko', cursive;
 		font-size: 2em;
 		float: none;
+		@include transition;
 
 		&:hover,
 		&:active,
 		&:visited,
 		&:focus {
-			color: map-get($colors, white);
+			color: map-get($colors, teal);
+			@include transition;
 		}
 	}
 
