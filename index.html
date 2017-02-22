@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
+	<meta name="description" content="Add emojis to your site with just the click of a button! No emojis were harmed in the making of this site.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>wtfEmojis</title>
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -14,8 +14,12 @@
 	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
 </head>
 <body>
-	<div id="top"></div>
 	<div id="app">
+		<div id="top"></div>
+		<div class="message" :class="{copied: copied, error: error}">
+			<span v-show="copied">Copied!</span>
+			<span v-show="error">Uh oh! :(</span>
+		</div>
 		<nav class="navbar navbar-default navbar-fixed-top">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
@@ -50,7 +54,7 @@
 				<div class="row">
 					<div class="emoji-list">
 						<div class="col-xs-6 col-sm-3 col-md-2 emoji-wrap" v-for="emoji in filteredList">
-							<span class="emoji" :id="emoji.name" :title="emoji.name">{{emoji.emoji}}</span>
+							<span class="emoji" :id="emoji.name" :title="emoji.name" @click="copy">{{emoji.emoji}}</span>
 						</div>
 					</div>
 				</div>
@@ -62,6 +66,16 @@
 			</div>
 		</footer>
 	</div>
-<script src="build/js/bundle.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-92406619-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+	<script src="build/js/bundle.js"></script>
 </body>
 </html>
