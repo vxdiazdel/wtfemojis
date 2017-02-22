@@ -1,4 +1,4 @@
 // SASS mixins
-@mixin transition() {
-  transition: all .3s ease-in-out;
+@mixin transition($el...) {
+  transition: $el .25s ease-in-out;
 }
