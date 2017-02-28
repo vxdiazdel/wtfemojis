@@ -2,3 +2,5 @@
 *.log
 node_modules/
 emojis.html
+emojis.json
+build/img

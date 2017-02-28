@@ -3,7 +3,7 @@ const app = new Vue({
 	data: {
 		emojis: [],
 		searchText: '',
-		api: 'https://wtfemojisapi.herokuapp.com/wtf',
+		api: '//wtfemojisapi.herokuapp.com/wtf',
 		copied: false,
 		error: false
 	},
@@ -20,7 +20,7 @@ const app = new Vue({
 	computed: {
 		filteredList: function() {
 			return this.emojis.filter((emoji) => {
-				return emoji.name.indexOf(this.searchText) !== -1;
+				return emoji.data.name.indexOf(this.searchText) !== -1;
 			});
 		}
 	},
@@ -28,7 +28,7 @@ const app = new Vue({
 		fetchEmojis: function() {
 			return $.ajax({
 				method: 'GET',
-				url: 'https://wtfemojisapi.herokuapp.com/wtf',
+				url: this.api,
 				crossDomain: true,
 				dataType: 'json'
 			});

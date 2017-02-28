@@ -39,11 +39,21 @@
 					<h1 class="header-text">Emojify Your Site</h1>
 				</div>
 				<div class="emoji-wrap">
-					<span class="emoji">👻</span>
-					<span class="emoji">🐛</span>
-					<span class="emoji">🙃</span>
-					<span class="emoji">💨</span>
-					<span class="emoji">🌯</span>
+					<span class="emoji">
+						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f40b.svg">
+					</span>
+					<span class="emoji">
+						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f40c.svg">
+					</span>
+					<span class="emoji">
+						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f643.svg">
+					</span>
+					<span class="emoji">
+						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f436.svg">
+					</span>
+					<span class="emoji">
+						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f32f.svg">
+					</span>
 				</div>
 				<div class="btn-wrap">
 					<a class="btn btn-lg btn-primary" href="#hp-content">Emoji Me!</a>
@@ -55,7 +65,9 @@
 				<div class="row">
 					<div class="emoji-list">
 						<div class="col-xs-6 col-sm-3 col-md-2 emoji-wrap" v-for="emoji in filteredList">
-							<span class="emoji" :id="emoji.name" :title="emoji.name" @click="copy">{{emoji.emoji}}</span>
+							<span class="emoji convert-emoji" :id="emoji.emoji" :title="emoji.emoji" @click="copy">
+								<img :src="'build/img/svg/' + emoji.data.unicode + '.svg'">
+							</span>
 						</div>
 					</div>
 				</div>
@@ -63,7 +75,8 @@
 		</main>
 		<footer>
 			<div class="container text-center">
-				<p>Copyright &copy;<span class="year"></span> <span class="logo">wtfEmojis</span></p>
+				<p><small>Copyright &copy;<span class="year"></span> <span class="logo">wtfEmojis</span></small></p>
+				<p><small>Emoji art supplied by <a href="http://emojione.com" target="_blank">EmojiOne</a></small></p>
 			</div>
 		</footer>
 	</div>
