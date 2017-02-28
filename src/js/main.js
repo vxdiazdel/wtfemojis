@@ -19,7 +19,7 @@ $(function() {
 
   // Animate shadow on mouse move
   const nav = document.querySelector('.navbar');
-  const header = document.querySelector('.hp-header')
+  const header = document.querySelector('.hp-header');
   const headerText = header.querySelector('.header-text');
   const walk = 25;
 
