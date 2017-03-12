@@ -39,21 +39,11 @@
 					<h1 class="header-text">Emojify Your Site</h1>
 				</div>
 				<div class="emoji-wrap">
-					<span class="emoji">
-						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f40b.svg">
-					</span>
-					<span class="emoji">
-						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f40c.svg">
-					</span>
-					<span class="emoji">
-						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f643.svg">
-					</span>
-					<span class="emoji">
-						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f436.svg">
-					</span>
-					<span class="emoji">
-						<img src="//emojione.com/wp-content/uploads/assets/emojis/1f32f.svg">
-					</span>
+					<span class="emoji">👻</span>
+					<span class="emoji">🐛</span>
+					<span class="emoji">🙃</span>
+					<span class="emoji">💨</span>
+					<span class="emoji">🌯</span>
 				</div>
 				<div class="btn-wrap">
 					<a class="btn btn-lg btn-primary" href="#hp-content">Emoji Me!</a>
@@ -61,12 +51,13 @@
 			</div>
 		</header>
 		<main class="hp-content" id="hp-content">
+			<a class="cta-link" href="http://amzn.to/2nj6ta9" target="_blank">Emoji Swag 😜</a>
 			<div class="container">
 				<div class="row">
 					<div class="emoji-list">
 						<div class="col-xs-6 col-sm-3 col-md-2 emoji-wrap" v-for="emoji in filteredList">
-							<span class="emoji convert-emoji" :id="emoji.emoji" :title="emoji.emoji" @click="copy">
-								<img :src="'build/img/svg/' + emoji.data.unicode + '.svg'">
+							<span class="emoji convert-emoji" :id="emoji._id" :title="emoji.name" @click="copy">
+								{{emoji.emoji}}
 							</span>
 						</div>
 					</div>
@@ -76,7 +67,8 @@
 		<footer>
 			<div class="container text-center">
 				<p><small>Copyright &copy;<span class="year"></span> <span class="logo">wtfEmojis</span></small></p>
-				<p><small>Emoji art supplied by <a href="http://emojione.com" target="_blank">EmojiOne</a></small></p>
+				<p><small>All emoji names are official character and/or CLDR names and code points, listed as part of the Unicode Standard. Emoji character artwork and copyright belong to their respective font creators.</small></p>
+				<p><small><a href="contact.html">Contact Me</a></small></p>
 			</div>
 		</footer>
 	</div>

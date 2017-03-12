@@ -20,7 +20,7 @@ const app = new Vue({
 	computed: {
 		filteredList: function() {
 			return this.emojis.filter((emoji) => {
-				return emoji.data.name.indexOf(this.searchText) !== -1;
+				return emoji.name.toLowerCase().indexOf(this.searchText) !== -1;
 			});
 		}
 	},
