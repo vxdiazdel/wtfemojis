@@ -188,6 +188,15 @@ body {
 	}
 }
 
+.loader {
+
+	.emoji {
+		transform-origin: center center;
+		animation: loader 1s linear infinite;
+		pointer-events: none;
+	}
+}
+
 .hp-content {
 	background: map-get($colors, white);
 
@@ -285,5 +294,11 @@ footer {
 	to {
 		opacity: 0;
 		transform: scale(0.75);
+	}
+}
+
+@keyframes loader {
+	to {
+		transform: rotate(359deg);
 	}
 }

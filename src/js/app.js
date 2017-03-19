@@ -5,12 +5,14 @@ const app = new Vue({
 		searchText: '',
 		api: '//wtfemojisapi.herokuapp.com/wtf',
 		copied: false,
-		error: false
+		error: false,
+		loaded: false
 	},
 	created: function() {
 		this.fetchEmojis()
 			.done((result) => {
 				this.emojis = result.data;
+				this.loaded = true;
 			})
 			.fail((result) => {
 				this.emojis = [];
