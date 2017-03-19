@@ -52,11 +52,19 @@
 		</header>
 		<main class="hp-content" id="hp-content">
 			<a class="cta-link" href="http://amzn.to/2nj6ta9" target="_blank">Emoji Swag 😜</a>
+			<div class="container loader" v-if="!loaded">
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h3>Loading...</h3>
+						<span class="emoji">🙃</span>
+					</div>
+				</div>
+			</div>
 			<div class="container">
 				<div class="row">
 					<div class="emoji-list">
 						<div class="col-xs-6 col-sm-3 col-md-2 emoji-wrap" v-for="emoji in filteredList">
-							<span class="emoji convert-emoji" :id="emoji._id" :title="emoji.name" @click="copy">
+							<span class="emoji" :id="emoji._id" :title="emoji.name" @click="copy">
 								{{emoji.emoji}}
 							</span>
 						</div>
