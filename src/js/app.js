@@ -38,9 +38,11 @@ const app = new Vue({
 		copy: function(e) {
 			const copyText = e.target;
 			const range = document.createRange();
+			const selection = window.getSelection();
 
-			range.selectNode(copyText);
-			window.getSelection().addRange(range);
+			range.selectNodeContents(copyText);
+			selection.removeAllRanges();
+			selection.addRange(range);
 
 			if (document.execCommand('copy')) {
 				this.copySuccess();
