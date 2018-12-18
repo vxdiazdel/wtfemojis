@@ -15,6 +15,10 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+[v-cloak] {
+	display: none;
+}
+
 #top {
 	width: 0;
 	height: 0;
@@ -203,7 +207,7 @@ body {
 	.cta-link {
 		position: fixed;
 		bottom: 33px;
-		left: -38px;
+		left: -40px;
 		background: map-get($colors, black);
 		padding: 5px;
 		z-index: 1;

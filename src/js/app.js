@@ -3,7 +3,7 @@ const app = new Vue({
 	data: {
 		emojis: [],
 		searchText: '',
-		api: '//wtfemojisapi.herokuapp.com/wtf',
+		api: './config/emojis.json',
 		copied: false,
 		error: false,
 		loaded: false
@@ -11,7 +11,7 @@ const app = new Vue({
 	created: function() {
 		this.fetchEmojis()
 			.done((result) => {
-				this.emojis = result.data;
+				this.emojis = result;
 				this.loaded = true;
 			})
 			.fail((result) => {
@@ -31,7 +31,6 @@ const app = new Vue({
 			return $.ajax({
 				method: 'GET',
 				url: this.api,
-				crossDomain: true,
 				dataType: 'json'
 			});
 		},
