@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp",
     "dev": "gulp dev",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index",
+    "generateIds": "node config/generateIds"
   },
   "author": "Victor Diaz de Leon",
   "license": "ISC",
@@ -21,7 +22,8 @@
     "gulp-plumber": "^1.0.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.7.3",
-    "gulp-uglify": "^1.2.0"
+    "gulp-uglify": "^1.2.0",
+    "shortid": "^2.2.14"
   },
   "dependencies": {}
 }
