@@ -1,7 +1,10 @@
+import { Layout } from '@/components/Layout';
+import { HomeScene } from '@/scenes/Home';
+
 export default function App() {
   return (
-    <>
-      <h1 className="text-3xl">wtfEmojis</h1>
-    </>
+    <Layout>
+      <HomeScene />
+    </Layout>
   );
 }
