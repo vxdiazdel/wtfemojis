@@ -1,0 +1,38 @@
+name: CI
+
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          ref: ${{github.head_ref}}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Run prettier
+        uses: creyD/prettier_action@v4.3
+        with:
+          dry: True
+          prettier_version: 3.3.0
+
+      - name: Install node modules
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --immutable
+
+      - name: Run lint
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint
+
+      - name: Run typecheck
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: typecheck
