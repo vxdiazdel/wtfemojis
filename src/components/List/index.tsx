@@ -6,11 +6,7 @@ type ListProps<T> = {
   renderItem: (item: T) => ReactNode;
 };
 
-const ListComponent = <T extends unknown>({
-  data,
-  children,
-  renderItem,
-}: ListProps<T>) => {
+const ListComponent = <T,>({ data, children, renderItem }: ListProps<T>) => {
   return (
     <>
       {children}
