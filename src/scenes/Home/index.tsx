@@ -3,15 +3,17 @@ import { toast } from 'react-toastify';
 import { Card } from '@/components/Card';
 import { Input } from '@/components/Input';
 import { EmojiList } from '@/components/EmojiList';
-import { emojis } from '@/data/emojis';
 import { useEmojiContext } from '@/context/EmojiContext/hooks';
 import { Footer } from '@/components/Footer';
 import { Notification } from '@/components/Notification';
 import { NoResults } from '@/components/NoResults';
+import { Loader } from '@/components/Loader';
+import { useEmojisQuery } from '@/components/EmojiList/hooks/useEmojisQuery';
 
 const HomeSceneComponent = () => {
   const [searchText, setSearchText] = useState('');
   const { emoji, setEmoji } = useEmojiContext();
+  const { data: emojisData, loading, error } = useEmojisQuery();
 
   const handleSearchChange = useCallback((value: string) => {
     setSearchText(value);
@@ -31,10 +33,27 @@ const HomeSceneComponent = () => {
   );
 
   const filteredEmojis = useMemo(() => {
-    if (!searchText) return emojis;
+    if (!searchText) return emojisData;
 
-    return emojis.filter((emoji) => emoji.name.includes(searchText));
-  }, [searchText]);
+    return emojisData.filter((emoji) => emoji.name.includes(searchText));
+  }, [emojisData, searchText]);
+
+  const content = useMemo(() => {
+    if (loading) {
+      return <Loader className="col-span-full" />;
+    }
+
+    if (error) {
+      return <div>Oh no, an error occurred. 🥲</div>;
+    }
+
+    return (
+      <>
+        <EmojiList emojis={filteredEmojis} onClick={handleSelectEmoji} />
+        {!filteredEmojis.length ? <NoResults /> : null}
+      </>
+    );
+  }, [error, filteredEmojis, handleSelectEmoji, loading]);
 
   return (
     <>
@@ -60,8 +79,7 @@ const HomeSceneComponent = () => {
 
         <section className="mt-4">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(75px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))]">
-            <EmojiList emojis={filteredEmojis} onClick={handleSelectEmoji} />
-            {!filteredEmojis.length ? <NoResults /> : null}
+            {content}
           </div>
         </section>
       </Card>
