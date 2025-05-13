@@ -8,30 +8,35 @@ const DEFAULT_HEADERS: Record<string, string> = {
 };
 
 export async function get<TData>({
+  baseUrl,
   path,
   query = {},
   options = {},
 }: {
+  baseUrl?: string;
   path: string;
   query?: Record<string, string>;
   options?: RequestInit;
 }): Promise<ApiResponse<TData>> {
-  return _fetch({ path, query, options, method: 'GET' });
+  return _fetch({ baseUrl, path, query, options, method: 'GET' });
 }
 
 export async function post<TData, TBody>({
+  baseUrl,
   path,
   body = {} as TBody,
   options = {},
 }: {
+  baseUrl?: string;
   path: string;
   body?: TBody;
   options?: RequestInit;
 }): Promise<ApiResponse<TData>> {
-  return _fetch({ path, body, options, method: 'POST' });
+  return _fetch({ baseUrl, path, body, options, method: 'POST' });
 }
 
 async function _fetch<TData, TBody>({
+  baseUrl,
   path,
   body,
   query = {},
@@ -59,7 +64,9 @@ async function _fetch<TData, TBody>({
   const params = new URLSearchParams(queryParams);
 
   const res = await fetch(
-    `${BASE_URL}${path}${params.size ? `?${params.toString()}` : ''}`,
+    `${baseUrl ?? BASE_URL}${path}${
+      params.size ? `?${params.toString()}` : ''
+    }`,
     opts,
   );
 

@@ -10,4 +10,17 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      '/api/emojis': {
+        target: 'https://gist.githubusercontent.com',
+        changeOrigin: true,
+        rewrite: (path) =>
+          path.replace(
+            /^\/api\/emojis$/,
+            'vxdiazdel/6379467dac401f2e3e2f1b6a68933605/raw/dea3d220b003d858f3bce0b7d82035baa769a019/emojis.json',
+          ),
+      },
+    },
+  },
 });

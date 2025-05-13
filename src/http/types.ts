@@ -10,6 +10,7 @@ export type ApiResponse<TData, TError = Error> = {
 };
 
 export type FetchArgs<TBody> = {
+  baseUrl?: string;
   path: string;
   body?: TBody;
   query?: Record<string, string>;
@@ -18,6 +19,7 @@ export type FetchArgs<TBody> = {
 };
 
 export type FetchRequest<T = void> = {
+  baseUrl?: string;
   query?: Record<string, string>;
   options?: RequestInit;
 } & T extends infer U
